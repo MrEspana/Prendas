@@ -25,8 +25,10 @@ int main()
 	
 	system("cls");
 	printf("Estas son tus prendas...\n");
-	for(i = 0 ; i < numeroprendas; i++)
-		printf("%i %s\n", contadorprendas++, prenda1[i].prenda);
+	for(i = 0 ; i < numeroprendas; i++){
+		printf("%i %s\n", contadorprendas++, prenda1[i].prenda);}
+	contadorprendas = 1;
+		
 	
 
 	
@@ -39,6 +41,11 @@ int main()
 		{
 			case 1:
 				
+				system("cls");
+				printf("Estas son tus prendas...\n");
+				for(i = 0 ; i < numeroprendas; i++){
+					printf("%i %s\n", contadorprendas++, prenda1[i].prenda);}
+				contadorprendas = 1;
 				printf("Que numero de prenda deseas cambiar?\n");
 				scanf("%i", &cambiarnombre); 
 				cambiarnombre--;
@@ -52,10 +59,26 @@ int main()
 			
 			case 2: 
 			
+				int p;
+				system("cls");
+				printf("Estas son tus prendas...\n");
+				for(i = 0 ; i < numeroprendas; i++){
+					printf("%i %s\n", contadorprendas++, prenda1[i].prenda);}
+				contadorprendas = 1;
 				printf("Que numero de prenda deseas eliminar\n");
 				scanf("%d", &eliminarprenda);
 				eliminarprenda--;
 				
+				for(p = eliminarprenda ; p < numeroprendas ; p++)
+					prenda1[eliminarprenda] = prenda1[p];
+					
+				numeroprendas--;
+					
+				system("cls");
+				printf("Estas son tus prendas...\n");
+				for(i = 0 ; i < numeroprendas; i++){
+					printf("%i %s\n", contadorprendas++, prenda1[i].prenda);}
+				contadorprendas = 1;
 			
 			
 			break;
