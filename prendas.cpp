@@ -8,7 +8,7 @@ struct prenda
 
 int main()
 {
-	int numeroprendas, contador, contador2, menu, i, cambiarnombre, contadorprendas = 1, contadorprendas2 = 1, eliminarprenda;
+	int numeroprendas, contador, contador2, menu, i, cambiarnombre, contadorprendas = 1, contadorprendas2 = 1, eliminarprenda, prendasnuevas, agregar;
 	struct prenda prenda1[9];
 	
 	printf("¿Cuantas prendas va a ingresar? Maximo 9\n");
@@ -35,7 +35,7 @@ int main()
 	contador2=0;		
 	do
 	{
-	printf("¿Desea cambiar el nombre de una prenda o borrar una prenda?\n1:Cambiar\n2:Borrar\n3:Salir\n\n");
+	printf("¿Desea cambiar el nombre de una prenda o borrar una prenda?\n1:Cambiar\n2:Borrar\n3:Agregar Prenda\n4:Salir\n\n");
 	scanf("%i", &menu);
 		switch(menu)
 		{
@@ -52,8 +52,9 @@ int main()
 				printf("Ingrese el nuevo nombre de la prenda\n");
 				scanf("%s", prenda1[cambiarnombre].prenda);	
 				printf("Estas son tus prendas...\n");
-				for(i = 0 ; i < numeroprendas; i++)
-					printf("%i %s\n", contadorprendas2++, prenda1[i].prenda);
+				for(i = 0 ; i < numeroprendas; i++){
+					printf("%i %s\n", contadorprendas2++, prenda1[i].prenda);}
+				contadorprendas = 1;	
 							
 			break;
 			
@@ -82,14 +83,46 @@ int main()
 			
 			
 			break;
-			case 3: contador2++;
+			case 3:
+				if(numeroprendas <9){
+					printf("Cuantas prendas desea agregar?\n");
+					scanf("%i", &prendasnuevas);
+					if(numeroprendas+prendasnuevas <= 9){
+						numeroprendas = numeroprendas + prendasnuevas;
+						
+						agregar= contador;
+							do
+							{
+								printf("Ingrese el nombre de las prendas\n");
+								scanf("%s", prenda1[agregar].prenda);
+								agregar++;
+							}
+							while(agregar<numeroprendas);
+							
+							system("cls");
+							printf("Estas son tus prendas...\n");
+							for(i = 0 ; i < numeroprendas; i++){
+								printf("%i %s\n", contadorprendas++, prenda1[i].prenda);}
+							contadorprendas = 1;
+						}
+					else
+						printf("No puedes agregar mas de 9 prendas\n");
+				}
+				else{
+					printf("No puedes agregar mas de 9 prendas\n");
+				}
+					
+			break;
+			
+			case 4: contador2++;
 			
 			break;
 			default: 
-				printf("Esa opcion no existe");
+				printf("Esa opcion no existe\n");
 			break;
 		}
 	}while(contador2==0);
+	
 	
 return 0;
 }
