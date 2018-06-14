@@ -40,18 +40,25 @@ int main()
 		switch(menu)
 		{
 			case 1:
-				
+				//e
 				system("cls");
 				printf("Estas son tus prendas...\n");
+				
 				for(i = 0 ; i < numeroprendas; i++){
-					printf("%i %s\n", contadorprendas++, prenda1[i].prenda);}
+					printf("%i %s\n", contadorprendas++, prenda1[i].prenda);
+				}
+				
 				contadorprendas = 1;
+				
 				printf("Que numero de prenda deseas cambiar?\n");
 				scanf("%i", &cambiarnombre); 
 				cambiarnombre--;
+				
 				printf("Ingrese el nuevo nombre de la prenda\n");
 				scanf("%s", prenda1[cambiarnombre].prenda);	
+				
 				printf("Estas son tus prendas...\n");
+				
 				for(i = 0 ; i < numeroprendas; i++){
 					printf("%i %s\n", contadorprendas2++, prenda1[i].prenda);}
 				contadorprendas = 1;	
@@ -70,10 +77,13 @@ int main()
 				scanf("%d", &eliminarprenda);
 				eliminarprenda--;
 				
-				for(p = eliminarprenda ; p < numeroprendas ; p++)
+				for(p = eliminarprenda+1 ; p < numeroprendas ; p++){
 					prenda1[eliminarprenda] = prenda1[p];
-					
+					eliminarprenda++;}
+						
 				numeroprendas--;
+				
+				
 					
 				system("cls");
 				printf("Estas son tus prendas...\n");
